@@ -1,0 +1,606 @@
+/* 1. Hide Elements */
+/* Hide GPT-4o limit banner, 'Is this conversation helpful' element, and certain buttons/elements */
+div[aria-haspopup="dialog"] a[href="/gpts"],
+.absolute.bottom-full.left-0.right-0.z-20,
+.flex.items-center.p-4.rounded-2xl.bg-token-main-surface-primary.text-token-text-primary.text-sm.border.border-token-border-light.gap-5.mt-3,
+.inline-flex.rounded-xl.border.border-gray-100.dark\:border-gray-700,
+.mt-1.flex.gap-3.empty\:hidden.juice\:-ml-3,
+a.group.flex.gap-2.p-2\.5.text-sm.cursor-pointer.focus\:ring-0.radix-disabled\:pointer-events-none.radix-disabled\:opacity-50.group.items-center.hover\:bg-token-sidebar-surface-secondary.m-0.rounded-lg.px-2,
+div.flex.justify-between.flex.h-14.items-center,
+span.flex.h-9.items-center,
+.flex-shrink-0.flex.flex-col.relative.items-end,
+span.flex.w-full.flex-row.flex-wrap-reverse.justify-between,
+div.mx-3.mt-12.flex.max-w-3xl.flex-wrap.items-stretch.justify-center.gap-4,
+button.flex.h-6.w-6.items-center.justify-center.rounded-full.border.border-token-border-light.text-xs.text-token-text-secondary,
+.markdown.prose .dark.bg-gray-950,
+.flex.flex-col.gap-2.pb-2.text-token-text-primary.text-sm.juice\:mt-5.h-full.justify-center.items-center.empty\:hidden {
+display: none !important;
+pointer-events: none !important;
+visibility: hidden !important;
+position: fixed !important;
+overflow: hidden !important;
+z-index: -1 !important;
+}
+
+.bg-token-sidebar-surface-primary,
+.hover\:bg-token-sidebar-surface-secondary:hover {
+  background: transparent !important;
+}
+
+#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.flex-shrink-0.overflow-x-hidden.bg-token-sidebar-surface-primary > div > div > div > div > nav > div.flex-col.flex-1.transition-opacity.duration-500.-mr-2.pr-2.overflow-y-auto > div.bg-token-sidebar-surface-primary.pt-0 > div > a > div.flex.gap-2 {
+    display: none;
+}
+
+div[class*="bg-gradient-to-"] {
+    display: none;
+}
+
+/* Hide specific elements and code blocks */
+div[type="button"][aria-haspopup="dialog"][aria-expanded="false"][aria-controls="radix-:r3n:"][data-state="closed"] {
+position: absolute;
+top: 150%;
+left: 0;
+width: 100%;
+transform: translateY(200%);
+pointer-events: none !important;
+}
+
+
+
+
+
+
+/* 2. Restyling the Main Window */
+
+/* Import Pacifico font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Text Entry Box*/
+
+/* Target the outer container */
+div.flex.w-full.flex-col.gap-1\.5.rounded-\[26px\] {
+  background: linear-gradient(to right, rgba(255,120,190,0.5), rgba(255,192,160,0.9)) !important;
+  border: 2px solid #FF69B4 !important;
+  transform: scale(0.98);
+}
+
+/* Style the textarea */
+#prompt-textarea {
+  color: #333 !important;
+  font-size: 18px;
+}
+
+/* Adjust placeholder color */
+#prompt-textarea::placeholder {
+  color: rgba(51,51,51,0.7) !important;
+}
+
+/* 'Enter' Icon at Text Entry Box */
+
+button[data-testid="fruitjuice-send-button"] {
+  background: linear-gradient(to right, #ff7e94, #ffb8a8) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+button[data-testid="fruitjuice-send-button"]:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15) !important;
+}
+
+button[data-testid="fruitjuice-send-button"] svg {
+  fill: black !important;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2)) !important;
+}
+
+/* Hide the original SVG */
+.flex.h-full.flex-col.items-center.justify-center.text-token-text-primary svg.h-12.w-12 {
+display: none !important;
+}
+
+/* Style the parent container */
+.flex.h-full.flex-col.items-center.justify-center.text-token-text-primary {
+position: relative;
+width: 100%; /* Adjust this value as needed */
+height: 100%; /* Adjust this value as needed */
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Create the "Chat with me!" text with black outline and color shift animation */
+.flex.h-full.flex-col.items-center.justify-center.text-token-text-primary::before {
+content: "Chat with me!";
+display: inline-block;
+font-family: 'Pacifico', cursive;
+font-size: 72px; /* Reduced font size */
+font-weight: bold;
+color: #FFA07A; /* Fallback color in case gradients aren't supported */
+text-shadow: none; /* Remove any existing text-shadow */
+-webkit-text-stroke: 0.00001px black; /* Black outline */
+background: linear-gradient(45deg, #FF1493, #FFA07A, #9370DB);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+text-align: center;
+padding: 10px;
+box-sizing: border-box;
+white-space: nowrap;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(-10deg) skew(-5deg);
+width: 100%;
+animation: textColorShift 3s infinite alternate;
+}
+
+/* Animation for color shifting */
+@keyframes textColorShift {
+0% {
+  filter: hue-rotate(0deg);
+}
+100% {
+  filter: hue-rotate(30deg);
+}
+}
+
+
+/* Main Background */
+/* Main Chat Window Set Background To Sparkly Pink START*/
+
+main.relative.h-full.w-full.flex-1.overflow-auto.transition-width {
+  
+position: relative;
+overflow: hidden;
+border-radius: 20px; /* Adjust this value for more or less rounding */
+margin: 20px; /* Adjust this value for more or less margin */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+width: 94%;
+}
+
+@keyframes mainColorShift {
+0% {
+  background: linear-gradient(135deg, rgba(255, 192, 203, 0.8), rgba(255, 182, 193, 0.8));
+}
+50% {
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.8), rgba(255, 105, 180, 0.8));
+}
+100% {
+  background: linear-gradient(135deg, rgba(255, 105, 180, 0.8), rgba(255, 182, 193, 0.8));
+}
+}
+
+main.relative.h-full.w-full.flex-1.overflow-auto.transition-width::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('https://img.freepik.com/free-vector/realistic-pink-silver-background_23-2150036776.jpg') no-repeat center center;
+background-size: cover;
+opacity: 0.3;
+}
+
+main.relative.h-full.w-full.flex-1.overflow-auto.transition-width {
+box-shadow: 0 0 10px rgba(221, 160, 221, 1)
+}
+
+
+
+
+
+
+
+
+
+
+/* 3. Restyle the Sidebar */
+
+/* Restyle the Sidebar */
+
+/* Adjust the sidebar styles */
+nav.flex.h-full.w-full.flex-col.px-3.pb-3\.5.juice\:pb-0 {
+  position: fixed !important;
+  left: 10px !important;
+  top: 20px !important;
+  bottom: 10px !important;
+  width: 400px !important;
+  max-width: 80% !important;
+  height: 94% !important;
+  z-index: 1000 !important;
+  overflow-y: auto !important;
+  transition: transform 0.3s ease-in-out !important;
+  border-radius: 15px !important;
+  background: url("https://img.freepik.com/free-vector/realistic-pink-silver-background_23-2150057686.jpg?size=626&ext=jpg&ga=GA1.1.834732384.1720180940&semt=ais_user") center/cover no-repeat !important;
+  box-shadow: 0 0 10px rgba(221, 160, 221, 1) !important;
+  padding: 20px 10px !important;
+  box-sizing: border-box !important;
+  pointer-events: auto !important;
+}
+
+/* Adjust the container for both sidebar and main content */
+div.relative.z-0.flex.h-full.w-full.overflow-hidden {
+  display: flex !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+/* Adjust the main content area */
+div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden {
+  flex: 1 !important;
+  max-width: calc(100% - 420px) !important;
+  margin-left: 150px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Ensure the main content doesn't overlap with the sidebar */
+main {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  margin-left: 0 !important;
+}
+
+/* Adjust any direct children of main if needed */
+main > * {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Common styles for all list items */
+.group.relative.rounded-lg.active\:opacity-90 {
+  margin: 10px 0 !important;
+  border-radius: 15px !important;
+  padding: 5px !important;
+  transition: all 0.3s ease !important;
+}
+
+.group.relative.rounded-lg.active\:opacity-90 a .relative.grow {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: calc(100% - 40px) !important;
+}
+
+/* Unselected list items */
+.group.relative.rounded-lg.active\:opacity-90:not(.bg-token-sidebar-surface-secondary) {
+  background: linear-gradient(to right, rgba(255, 120, 190, 0.5), rgba(255, 192, 160, 0.9)) !important;
+  border: 2px solid #FF69B4 !important;
+  transform: scale(0.94);
+}
+
+/* Selected list item */
+.group.relative.rounded-lg.active\:opacity-90.bg-token-sidebar-surface-secondary {
+  background: linear-gradient(to right, #FF1493, #FF69B4) !important;
+  border: 2px solid #C71585 !important;
+  box-shadow: 0 0 15px #FF69B4 !important;
+  transform: scale(0.99);
+}
+
+/* Font style for all list items */
+.group.relative.rounded-lg.active\:opacity-90 a {
+  color: #4a0024 !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7) !important;
+  font-size: 18px !important;
+  padding: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  line-height: 1.3;
+}
+
+/* Add cute heart icon before text */
+.group.relative.rounded-lg.active\:opacity-90 a::before {
+  content: '❤️' !important;
+  margin-right: 10px !important;
+  font-size: 20px !important;
+}
+
+/* Hover effect for unselected items */
+.group.relative.rounded-lg.active\:opacity-90:not(.bg-token-sidebar-surface-secondary):hover {
+  transform: scale(1);
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.5) !important;
+}
+
+/* Remove default gradients */
+.absolute.bottom-0.top-0.to-transparent {
+  background: none !important;
+}
+
+/* Add sparkle animation */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Create New Chat Button On Sidebar */
+
+/* Common styles */
+.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold {
+  background: linear-gradient(to right, #FF1493, #FF69B4) !important;
+  border: 2px solid #C71585 !important;
+  box-shadow: 0 0 5px #FF69B4 !important;
+  transform: scale(1.2);
+  margin: 10px 30px 10px 0;
+  width: fit-content;
+}
+
+.bg-token-sidebar-surface-primary,
+.hover\:bg-token-sidebar-surface-secondary:hover {
+  background: transparent !important;
+}
+
+/* Specific element */
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 220px !important;
+  height: 120px !important;
+  margin: 20px auto !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.7) !important;
+  position: relative !important;
+  overflow: visible !important;
+  transition: all 0.3s ease !important;
+  padding: 10px !important;
+}
+
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary .h-6.w-6,
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary .flex.gap-3 {
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  display: none !important;
+}
+
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary::before {
+  content: '❤️' !important;
+  font-size: 40px !important;
+  position: absolute !important;
+  top: 5px !important;
+  left: 50% !important;
+  transform: translateX(-50%) scale(1) !important;
+  animation: heartPulse 1s infinite alternate !important;
+  z-index: 1 !important;
+}
+
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary .text-sm {
+  font-family: 'Pacifico', cursive !important;
+  font-size: 30px !important;
+  font-weight: bold !important;
+  color: black !important;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.3s ease !important;
+  line-height: 1.5 !important;
+  padding: 30px !important;
+  margin: 30px 10px 0 !important;
+  text-align: center !important;
+}
+
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+}
+
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary:hover .text-sm {
+  transform: scale(1.1) !important;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7) !important;
+}
+
+a.group.flex.h-10.items-center.gap-2.rounded-lg.bg-token-sidebar-surface-primary.px-2.font-semibold.juice\:gap-2\.5.juice\:font-normal.hover\:bg-token-sidebar-surface-secondary:hover {
+  transform: scale(1.23) !important;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.9) !important;
+  background: linear-gradient(to right, #FF69B4, #FF1493) !important;
+}
+
+/* Keyframes for pulsing heart animation */
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 4. Restyle Conversation */
+/* Restyling Elissa and User Chat Bubbles */
+
+/* Base styles for all conversation turns */
+.w-full[data-testid^="conversation-turn-"] {
+  margin-bottom: 1px;
+}
+
+/* Style for the inner content of the turn */
+.w-full[data-testid^="conversation-turn-"] > div > div > div {
+  border-radius: 20px;
+  padding: 10px 15px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* Styles for odd-numbered conversation turns (purple theme, left-aligned) */
+.w-full[data-testid^="conversation-turn-"]:nth-child(odd) {
+  align-self: flex-start;
+  width: 50%;
+  margin-left: 20px;
+}
+
+.w-full[data-testid^="conversation-turn-"]:nth-child(odd) > div > div > div {
+  background-color: rgba(128, 0, 128, 0.1);
+  border: 2px solid rgba(128, 0, 128, 0.3);
+}
+
+/* Force black text color for assistant messages */
+.w-full[data-testid^="conversation-turn-"]:nth-child(odd) > div > div > div,
+.w-full[data-testid^="conversation-turn-"]:nth-child(odd) > div > div > div * {
+  color: black !important;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.w-full[data-testid^="conversation-turn-"]:nth-child(odd) > div > div > div:hover {
+  box-shadow: 0 2px 5px rgba(128, 0, 128, 0.2);
+}
+
+/* Target the container of user messages */
+[data-testid^="conversation-turn-"] .flex.w-full.flex-col.gap-1.juice\:empty\:hidden.items-end.rtl\:items-start {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 30%;
+}
+
+/* Style the user message bubble */
+[data-testid^="conversation-turn-"] .relative.max-w-\[70\%\].rounded-3xl.bg-\[\#f4f4f4\].px-5.py-2\.5.dark\:bg-token-main-surface-secondary {
+  background-color: rgba(255, 218, 185, 0.8) !important;
+  border: 2px solid rgba(255, 218, 185, 0.4);
+  border-radius: 15px;
+  display: inline-block;
+  padding: 10px 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: black !important;
+  max-width: 70%;
+}
+
+/* Adjust the hover state for the edit button */
+[data-testid^="conversation-turn-"] .absolute.bottom-0.right-full.top-0.-mr-3\.5.hidden.pr-5.pt-1 {
+  right: 100%;
+  margin-right: 5px;
+}
+
+/* Ensure assistant messages remain left-aligned */
+[data-message-author-role="assistant"] .flex.flex-col.items-start {
+  align-items: flex-start !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 5. Restyle the menu dropdown */
+/* Target and hide the tooltip */
+div[role="tooltip"],
+div[data-state="delayed-open"]:not(.group):not([role="menu"]):not([role="menuitem"]),
+div[data-state="instant-open"]:not(.group):not([role="menu"]):not([role="menuitem"]) {
+display: none !important;
+opacity: 0 !important;
+visibility: hidden !important;
+pointer-events: none !important;
+}
+
+
+/* Style the dropdown menu */
+[data-radix-popper-content-wrapper] > div[role="menu"] {
+background-color: rgba(255, 218, 185, 0.7) !important;
+border: 2px solid #FF1493 !important;
+border-radius: 15px !important;
+overflow: hidden !important;
+box-shadow: 0 0 15px rgba(255, 105, 180, 0.5) !important;
+display: flex !important;
+flex-direction: column !important;
+padding: 5px !important;
+}
+
+/* Style menu items */
+[role="menuitem"] {
+background-color: rgba(255, 218, 185, 0.5) !important;
+border: 1px solid #FF69B4 !important;
+border-radius: 10px !important;
+margin: 5px !important;
+transition: all 0.3s ease !important;
+color: #8B008B !important;
+}
+
+/* Hover effect for menu items */
+[role="menuitem"]:hover {
+background-color: rgba(255, 105, 180, 0.7) !important;
+transform: scale(1.05) !important;
+box-shadow: 0 0 10px rgba(255, 105, 180, 0.7) !important;
+}
+
+/* Style icons in menu items */
+[role="menuitem"] svg {
+color: #FF1493 !important;
+}
+
+[data-radix-popper-content-wrapper] > div[role="menu"]::before {
+left: 5px !important;
+}
+
+[data-radix-popper-content-wrapper] > div[role="menu"]::after {
+right: 5px !important;
+animation-delay: 0.75s !important;
+}
+
+
+
+
+
+
+
+/* 6. Final Touches */
+/* Hide scrollbar */
+::-webkit-scrollbar {
+display: none;
+}
+
+
+/* Add a cute font START */
+body {
+font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+/* Elissa Signature */
+.relative.px-2.py-2.text-center.text-xs.text-token-text-secondary.md\:px-\[60px\] span {
+position: relative;
+display: inline-block;
+visibility: hidden;
+}
+
+.relative.px-2.py-2.text-center.text-xs.text-token-text-secondary.md\:px-\[60px\] span::after {
+content: "whats up!";
+display: block;
+visibility: visible;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+.relative.px-2.py-2.text-center.text-xs.text-token-text-secondary.md\:px-\[60px\] span::after {
+content: "Elissa";
+visibility: visible;
+  font-family: 'Pacifico', cursive !important;
+font-size: 18px !important;
+color: black !important;
+font-style: italic;
+}
